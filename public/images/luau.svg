@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B1E54"/><stop offset=".45" stop-color="#C2415D"/><stop offset=".8" stop-color="#F59E4B"/><stop offset="1" stop-color="#FCD58A"/></linearGradient>
+    <radialGradient id="flame"><stop offset="0" stop-color="#FFF7C2"/><stop offset=".5" stop-color="#FDBA3A"/><stop offset="1" stop-color="#F0643C" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#sky)"/>
+  <circle cx="400" cy="300" r="70" fill="#FFE08A" opacity=".9"/>
+  <rect y="300" width="800" height="70" fill="#E07A4F" opacity=".55"/>
+  <g stroke="#FFE7B0" stroke-width="3" opacity=".6"><path d="M330 320h140"/><path d="M350 336h100"/><path d="M372 352h56"/></g>
+  <path d="M0 370 C 200 350 600 350 800 370 L800 520 L0 520Z" fill="#2A1633"/>
+  <g fill="#1B0E22">
+    <path d="M90 520 C 100 400 110 300 140 200" stroke="#1B0E22" stroke-width="12" fill="none"/>
+    <path d="M140 200 c-60 -20 -110 10 -130 40 c50 -30 90 -30 130 -40z"/><path d="M140 200 c40 -50 100 -50 130 -30 c-50 -10 -90 10 -130 30z"/><path d="M140 200 c-20 -60 -60 -80 -100 -80 c40 20 70 50 100 80z"/><path d="M140 200 c50 -10 90 20 110 60 c-40 -30 -70 -50 -110 -60z"/>
+    <path d="M700 520 C 690 420 680 330 650 250" stroke="#1B0E22" stroke-width="11" fill="none"/>
+    <path d="M650 250 c60 -20 110 10 130 40 c-50 -30 -90 -30 -130 -40z"/><path d="M650 250 c-40 -50 -100 -50 -130 -30 c50 -10 90 10 130 30z"/><path d="M650 250 c20 -60 60 -80 100 -80 c-40 20 -70 50 -100 80z"/>
+  </g>
+  <g>
+    <rect x="252" y="380" width="6" height="110" fill="#5B3A1E"/><circle cx="255" cy="370" r="30" fill="url(#flame)"/>
+    <rect x="542" y="380" width="6" height="110" fill="#5B3A1E"/><circle cx="545" cy="370" r="30" fill="url(#flame)"/>
+  </g>
+  <g transform="translate(400 440)">
+    <circle cx="0" cy="-58" r="12" fill="#7C4A2D"/>
+    <path d="M-12 -46 h24 l6 30 h-36z" fill="#F0643C"/>
+    <path d="M-22 -16 h44 l10 40 h-64z" fill="#65A30D"/>
+    <path d="M-22 -16 l-4 40 M-10 -16 l-2 40 M2 -16 v40 M14 -16 l2 40" stroke="#3F6212" stroke-width="2"/>
+    <path d="M-12 -42 C -40 -60 -44 -80 -40 -96" stroke="#7C4A2D" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M12 -42 C 40 -30 50 -40 56 -54" stroke="#7C4A2D" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <g fill="#F9A8D4"><circle cx="-8" cy="-47" r="4"/><circle cx="0" cy="-44" r="4"/><circle cx="8" cy="-47" r="4"/></g>
+  </g>
+</svg>

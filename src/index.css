@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global base: DM Sans everywhere, crisp text, thin scrollbars that don't fight the design. */
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  @apply bg-tw-wash font-sans text-tw-ink antialiased;
+  font-feature-settings: 'ss01' off;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d8e0 transparent;
+}
