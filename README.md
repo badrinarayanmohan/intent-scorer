@@ -110,6 +110,12 @@ A lead scoring 8.0 or more also gets a pulsing red **Call now** badge and a phon
 - **More signals:** party size, lead time until the tour date, price-tier viewed, device, traffic source, email opens, and live availability. A sold-out Saturday should lower the urgency.
 - **Workflow integration:** real-time push/Slack alerts when a lead crosses 8.0, auto-assignment round-robin, click-to-call logging, SMS fallback, and automatic suppression once a lead books.
 
+## Portfolio page with recorded video
+
+`portfolio/` is a standalone case-study page (`index.html` plus `media/`) that plays a 45-second recording of the guided demo, with clickable chapters. It has no build step, so you can upload the folder as-is (e.g. to `badriwhowonders.com/portfolio/intent-scorer/`). The video is an H.264 MP4 (1920×1200, 5 MB) with a VP9 WebM fallback.
+
+To re-record after changing the demo: `npm run build && npx vite preview --port 4173`, then `FFMPEG=/path/to/ffmpeg npm run record`.
+
 ## Deploy with Docker and embed in a portfolio
 
 The image is a multi-stage build. Node runs the tests and `vite build`, then **unprivileged nginx** serves the static files on port **8080**. The final image is about 75 MB and includes a `/healthz` endpoint.
@@ -143,6 +149,7 @@ src/
   components/ui/  Avatar, KpiCard, FilterChip, StagePill, FireRating, IntentGauge, Toasts
   demo/           autoplay script, fake cursor, caption bar
 scripts/          screenshots.mjs (Playwright visual QA)
+portfolio/        standalone case-study page + recorded demo video
 deploy/           nginx.conf.template · portfolio-embed.html (iframe snippet)
 public/images/    hand-drawn SVG illustrations (the demo runs fully offline)
 ```
