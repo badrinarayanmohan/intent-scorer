@@ -1,3 +1,5 @@
+import { asset } from '../lib/asset';
+
 /**
  * The operator's product catalogue. Shared by the mock website (cards, detail pages,
  * checkout) and the CRM (Experience column, filter), exactly as a real Tripworks
@@ -32,7 +34,7 @@ export const EXPERIENCES: Experience[] = [
     rating: 4.9,
     reviewCount: 412,
     duration: '3.5 hours',
-    image: '/images/luau.svg',
+    image: asset('images/luau.svg'),
     description:
       'An oceanfront evening of Polynesian storytelling, a traditional imu-roasted feast and a fire-knife finale under the stars.',
     highlights: ['Open bar & lei greeting', 'Imu pig unveiling', 'Front-row seating upgrade'],
@@ -50,7 +52,7 @@ export const EXPERIENCES: Experience[] = [
     rating: 4.8,
     reviewCount: 638,
     duration: '3 hours',
-    image: '/images/kayaking.svg',
+    image: asset('images/kayaking.svg'),
     description:
       'Glide over crystal reefs in stable two-person kayaks, then snorkel Turtle Town with a certified guide. Perfect for first-timers.',
     highlights: ['Sea turtle sightings almost guaranteed', 'Snorkel gear & GoPro photos included', 'Small groups (max 12)'],
@@ -68,7 +70,7 @@ export const EXPERIENCES: Experience[] = [
     rating: 4.9,
     reviewCount: 291,
     duration: '5 hours',
-    image: '/images/hiking.svg',
+    image: asset('images/hiking.svg'),
     description:
       'A guided rainforest trek through towering bamboo to a 400-foot waterfall, with a picnic lunch and swimming hole stop.',
     highlights: ['Pipiwai Trail & Waimoku Falls', 'Picnic lunch included', 'Hotel pickup'],
@@ -85,7 +87,7 @@ export const EXPERIENCES: Experience[] = [
     rating: 4.7,
     reviewCount: 356,
     duration: '6 hours',
-    image: '/images/biking.svg',
+    image: asset('images/biking.svg'),
     description:
       'Watch sunrise above the clouds at 10,023 ft, then coast 23 miles downhill through upcountry ranches and farm towns.',
     highlights: ['Summit sunrise permit included', 'Premium downhill bikes', 'Breakfast in Makawao'],
@@ -102,7 +104,7 @@ export const EXPERIENCES: Experience[] = [
     rating: 4.8,
     reviewCount: 184,
     duration: '4 hours',
-    image: '/images/fishing.svg',
+    image: asset('images/fishing.svg'),
     description:
       'Troll the deep blue off Lahaina aboard a 42ft sportfisher. Tackle, licences and snacks provided — keep a share of the catch.',
     highlights: ['Captain with 20+ years experience', 'All tackle included', 'Keep your catch'],

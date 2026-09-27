@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, CalendarDays, Clock, DoorOpen, Minus, Plus, ShieldCheck, Star, Users } from 'lucide-react';
 import { useEffect } from 'react';
 import { EXPERIENCES, getExperience, type Experience } from '../../data/experiences';
+import { asset } from '../../lib/asset';
 import { money } from '../../lib/format';
 import { useDemoStore } from '../../store/useDemoStore';
 
@@ -72,7 +73,7 @@ export function HomePage() {
   return (
     <Page>
       <section className="relative h-[300px] overflow-hidden">
-        <img src="/images/hero.svg" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={asset('images/hero.svg')} alt="" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-maui-deep/80 via-maui-deep/40 to-transparent" />
         <div className="relative flex h-full flex-col justify-center px-10">
           <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-cyan-100">Guided tours on Maui since 2009</div>
@@ -177,7 +178,7 @@ export function DetailPage({ id, tab }: { id: string; tab: 'overview' | 'reviews
               <img src={exp.image} alt="" className="h-full w-full object-cover" />
               <div className="grid grid-rows-2 gap-2">
                 <img src={exp.image} alt="" className="h-full w-full scale-150 object-cover object-right" />
-                <img src="/images/hero.svg" alt="" className="h-full w-full object-cover" />
+                <img src={asset('images/hero.svg')} alt="" className="h-full w-full object-cover" />
               </div>
             </div>
             <h1 className="mt-5 font-display text-[32px] font-semibold leading-tight text-maui-deep">{exp.name}</h1>

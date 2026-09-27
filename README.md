@@ -110,6 +110,25 @@ A lead scoring 8.0 or more also gets a pulsing red **Call now** badge and a phon
 - **More signals:** party size, lead time until the tour date, price-tier viewed, device, traffic source, email opens, and live availability. A sold-out Saturday should lower the urgency.
 - **Workflow integration:** real-time push/Slack alerts when a lead crosses 8.0, auto-assignment round-robin, click-to-call logging, SMS fallback, and automatic suppression once a lead books.
 
+## Deploy with Docker and embed in a portfolio
+
+The image is a multi-stage build. Node runs the tests and `vite build`, then **unprivileged nginx** serves the static files on port **8080**. The final image is about 75 MB and includes a `/healthz` endpoint.
+
+```bash
+docker build -t intent-scorer .
+docker run -p 8080:8080 intent-scorer          # http://localhost:8080
+# or: docker compose up --build
+```
+
+| Setting | Kind | Default | Purpose |
+|---|---|---|---|
+| `FRAME_ANCESTORS` | runtime env | `https://badriwhowonders.com https://www.badriwhowonders.com` | Origins allowed to show the demo in an `<iframe>` (sent as CSP `frame-ancestors`). Every other site is blocked. |
+| `VITE_BASE` | build arg | `/` | Path the app is served from. Use `--build-arg VITE_BASE=/portfolio/intent-scorer/` when proxying under a sub-path instead of a subdomain. |
+
+**Hosting.** Run the image on any container host (Fly.io, Render, Railway, Google Cloud Run, or a VPS behind Caddy/nginx), then point a subdomain such as `demo.badriwhowonders.com` at it. Everything runs in the browser, so one small instance is enough.
+
+**Embedding on the portfolio page.** `deploy/portfolio-embed.html` is a copy-paste snippet. Set `DEMO_URL` in the snippet to the container's URL. The demo is designed for 1440×900, so the snippet renders the iframe at that size and scales it down to fit the column, like a live screenshot you can click. On phones it shows a "best viewed on desktop" card and an "Open full screen" link.
+
 ---
 
 ## Project structure
@@ -124,6 +143,7 @@ src/
   components/ui/  Avatar, KpiCard, FilterChip, StagePill, FireRating, IntentGauge, Toasts
   demo/           autoplay script, fake cursor, caption bar
 scripts/          screenshots.mjs (Playwright visual QA)
+deploy/           nginx.conf.template · portfolio-embed.html (iframe snippet)
 public/images/    hand-drawn SVG illustrations (the demo runs fully offline)
 ```
 

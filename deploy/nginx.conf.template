@@ -1,0 +1,36 @@
+# nginx config for the Intent Scorer demo (rendered by envsubst at container start).
+server {
+    listen 8080;
+    server_name _;
+    root /usr/share/nginx/html;
+
+    gzip on;
+    gzip_types text/css application/javascript image/svg+xml application/json;
+    gzip_min_length 1024;
+
+    # Allow the portfolio site to embed the demo in an <iframe>.
+    # (CSP frame-ancestors replaces X-Frame-Options, which can't allow another origin.)
+    add_header Content-Security-Policy "frame-ancestors 'self' ${FRAME_ANCESTORS}" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    location = /healthz {
+        access_log off;
+        default_type text/plain;
+        return 200 "ok\n";
+    }
+
+    # Fingerprinted build assets never change, so cache them for a year.
+    location ${APP_BASE}assets/ {
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
+        add_header Content-Security-Policy "frame-ancestors 'self' ${FRAME_ANCESTORS}" always;
+        try_files $uri =404;
+    }
+
+    location ${APP_BASE} {
+        add_header Cache-Control "no-cache" always;
+        add_header Content-Security-Policy "frame-ancestors 'self' ${FRAME_ANCESTORS}" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        try_files $uri $uri/ ${APP_BASE}index.html;
+    }
+}
